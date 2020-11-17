@@ -7,6 +7,4 @@ layout: layouts/post.njk
 ---
 Fifth post ...
 
-
-
-this should keep the layout
+this should keep the layout leke
