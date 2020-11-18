@@ -1,9 +1,14 @@
 ---
+pagination: 
+    data: collections.posts
+    size: 5
+    alias: posts
+    reverse: true
 layout: layouts/base.njk
 ---
 
 
-{% for post in collections.posts %}
+{% for post in posts %}
 <div class="post-preview">
   <a href="{{ post.url | url }}">
     <h2 class="post-title">
@@ -16,3 +21,16 @@ layout: layouts/base.njk
 </div>
 <hr>
 {% endfor %}
+
+{# <pre>{{ pagination | dump }}</pre> #}
+
+<div style = "text-align: center;">
+{% if pagination.previous %}
+<a class = "btn btn-primary float-left" href = "{{ pagination.previousPageLink | url}}">Newer Posts</a>
+{% endif %}
+
+{% if pagination.next %}
+<a class = "btn btn-primary float-right" href = "{{ pagination.nextPageLink | url}}">Older Posts</a>
+
+{% endif %}
+</div>
